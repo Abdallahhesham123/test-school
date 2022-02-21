@@ -16,6 +16,8 @@ return [
     'students'=>'الطلاب',
     'Teachers'=>'المعلمين',
     'Parents'=>'اولياء الامور',
+    'List_Parents'=>'قائمه اولياء الامور ',
+    'Add_Parent'=>'اضافه اولياء الامور',
     'Accounts'=>'الحسابات',
     'Attendance'=>'الحضور والغياب',
     'Exams'=>'الامتحانات',
@@ -24,7 +26,7 @@ return [
     'Settings'=>'الاعدادات',
     'Users'=>'المستخدمين',
     'Copyright' => 'جميع الحقوق محفوظة ',
-    'Name_Programer' => 'سمير جمال مورا سوفت'
+    'Name_Programer' => 'عبدالله هشام'
 
 
 ];

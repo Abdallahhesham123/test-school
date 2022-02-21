@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,14 @@ Route::group(
         Route::get('/classes/{id}', 'SectionController@getclasses');
 
     });
+
+
+//============================== end Sections============================
+
+        // ============================== start Parents with live wire ============================
+
+
+            Route::view('add_parent','livewire.show_Form');
 
 
 });
