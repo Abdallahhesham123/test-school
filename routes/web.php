@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,17 +13,21 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Auth::routes();
+//Auth::routes();
 
-Route::group(['middleware' => ['guest']], function () {
+Route::get('/', 'HomeController@index')->name('selection');
 
-    Route::get('/', function () {
-        return view('auth.login');
-    });
+
+Route::group(['namespace' => 'Auth'], function () {
+
+Route::get('/login/{type}','LoginController@loginForm')->middleware('guest')->name('login.show');
+
+Route::post('/login','LoginController@login')->name('login');
+
+Route::get('/logout/{type}', 'LoginController@logout')->name('logout');
+
 
 });
-
-
  //==============================Translate all pages============================
 Route::group(
     [
@@ -33,7 +36,7 @@ Route::group(
     ], function () {
 
      //==============================dashboard============================
-    Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+    Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
    //==============================dashboard============================
     Route::group(['namespace' => 'Grades'], function () {
@@ -60,17 +63,53 @@ Route::group(
 
     });
 
+    //==============================parents============================
 
-//============================== end Sections============================
+         Route::view('add_parent','livewire.show_Form')->name('add_parent');
 
-        // ============================== start Parents with live wire ============================
+    //==============================Teachers============================
+    Route::group(['namespace' => 'Teachers'], function () {
+        Route::resource('Teachers', 'TeacherController');
+    });
 
+    //==============================Students============================
+    Route::group(['namespace' => 'Students'], function () {
+        Route::resource('Students', 'StudentController');
+        Route::get('/indirect', 'OnlineClasseController@indirectCreate')->name('indirect.create');
+        Route::post('/indirect', 'OnlineClasseController@storeIndirect')->name('indirect.store');
+        Route::resource('online_classes', 'OnlineClasseController');
+        Route::resource('Graduated', 'GraduatedController');
+        Route::resource('Promotion', 'PromotionController');
+        Route::resource('Fees_Invoices', 'FeesInvoicesController');
+        Route::resource('Fees', 'FeesController');
+        Route::resource('receipt_students', 'ReceiptStudentsController');
+        Route::resource('ProcessingFee', 'ProcessingFeeController');
+        Route::resource('Payment_students', 'PaymentController');
+        Route::resource('Attendance', 'AttendanceController');
+        Route::get('download_file/{filename}', 'LibraryController@downloadAttachment')->name('downloadAttachment');
+        Route::resource('library', 'LibraryController');
+        Route::get('/Get_classrooms/{id}', 'StudentController@Get_classrooms');
+        Route::get('/Get_Sections/{id}', 'StudentController@Get_Sections');
+        Route::post('Upload_attachment', 'StudentController@Upload_attachment')->name('Upload_attachment');
+        Route::get('Download_attachment/{studentsname}/{filename}', 'StudentController@Download_attachment')->name('Download_attachment');
+        Route::post('Delete_attachment', 'StudentController@Delete_attachment')->name('Delete_attachment');
+    });
 
-            Route::view('add_parent','livewire.show_Form');
+    //==============================subjects============================
+    Route::group(['namespace' => 'Subjects'], function () {
+        Route::resource('subjects', 'SubjectController');
+    });
 
+    //==============================Quizzes============================
+    Route::group(['namespace' => 'Quizzes'], function () {
+        Route::resource('Quizzes', 'QuizzController');
+    });
 
+    //==============================questions============================
+    Route::group(['namespace' => 'questions'], function () {
+        Route::resource('questions', 'QuestionController');
+    });
+
+    //==============================Setting============================
+    Route::resource('settings', 'SettingController');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

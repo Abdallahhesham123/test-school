@@ -5,7 +5,9 @@ namespace Database\Seeders;
 
 
 use Illuminate\Database\Seeder;
-use App\User;
+// use App\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -42,13 +44,25 @@ class UsersTableSeeder extends Seeder
         //     'password'=>bcrypt('01096519434')
 
         // ]);
-       $user= User::create([
+    //    $user= User::create([
 
 
-            'name'=>'super',
-            'email'=>'super_admin@app.com',
-            'password'=>bcrypt('secret')
+    //         'name'=>'super',
+    //         'email'=>'super_admin@app.com',
+    //         'password'=>bcrypt('secret')
 
+    //     ]);
+
+        DB::table('users')->insert([
+            'name' => 'abdallah hesham',
+            'email' => 'super_admin@app.com',
+            'password' => Hash::make('secret'),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'samir gamal',
+            'email' => 'samir.gamal77@yahoo.com',
+            'password' => Hash::make('p@ssw0rd'),
         ]);
 
         // $user->attachRole('super_admin');

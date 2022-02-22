@@ -2,13 +2,13 @@
 @section('css')
 
 @section('title')
-{{trans('main_trans.Add_Parent')}}
+    {{trans('main_trans.Add_Parent')}}
 @stop
 @endsection
 @section('page-header')
 <!-- breadcrumb -->
 @section('PageTitle')
-{{trans('main_trans.Add_Parent')}}
+    {{trans('main_trans.Add_Parent')}}
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -18,16 +18,7 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-           {{-- @livewire('myparent') --}}
-
-           {{--
-or
-
-<livewire:myparent />
-
-            --}}
-
-            <livewire:myparent />
+                <livewire:add-parent />
             </div>
         </div>
     </div>
@@ -35,5 +26,5 @@ or
 <!-- row closed -->
 @endsection
 @section('js')
-
+    @livewireScripts
 @endsection

@@ -14,10 +14,20 @@ return [
     'sections'=>'الاقسام',
     'List_sections'=>'قائمة الاقسام الدراسية',
     'students'=>'الطلاب',
+    'Student_information'=>'معلومات الطلاب',
+    'add_student'=>'اضافة طالب جديد',
+    'list_students'=>'قائمة الطلاب',
+    'Students_Promotions'=>'ترقية الطلاب',
+    'add_Promotion'=>'اضافة ترقية جديدة',
+    'list_Promotions'=>'قائمة الترقيات',
+    'Graduate_students'=>'الطلاب المتخرجين',
+    'add_Graduate'=>'اضافة تخرج جديد',
+    'list_Graduate'=>'قائمة التخرجات',
     'Teachers'=>'المعلمين',
+    'List_Teachers' => 'قائمة المعلمين',
     'Parents'=>'اولياء الامور',
-    'List_Parents'=>'قائمه اولياء الامور ',
-    'Add_Parent'=>'اضافه اولياء الامور',
+    'List_Parents'=>'قائمة اولياء الامور',
+    'Add_Parent'=>'اضافة ولي امر',
     'Accounts'=>'الحسابات',
     'Attendance'=>'الحضور والغياب',
     'Exams'=>'الامتحانات',
@@ -26,7 +36,7 @@ return [
     'Settings'=>'الاعدادات',
     'Users'=>'المستخدمين',
     'Copyright' => 'جميع الحقوق محفوظة ',
-    'Name_Programer' => 'عبدالله هشام'
+    'Name_Programer' => 'سمير جمال مورا سوفت'
 
 
 ];
